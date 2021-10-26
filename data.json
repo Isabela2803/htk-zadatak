@@ -1,0 +1,111 @@
+[{
+        "id": 1,
+        "name": "Tom",
+        "age": 4,
+        "color": "grey",
+        "imgUrl": "/img/cats/1Tom.jpg"
+
+
+
+    },
+
+    {
+        "id": 2,
+        "name": "Blackie",
+        "age": 7,
+        "color": "black",
+        "imgUrl": "/img/cats/2Blackie.png"
+
+    },
+
+    {
+        "id": 3,
+        "name": "Otis",
+        "age": 10,
+        "color": "black",
+        "imgUrl": "/img/cats/3Otis.jpg"
+
+
+    },
+
+    {
+        "id": 4,
+        "name": "Emily",
+        "age": 8,
+        "color": "ginger",
+        "imgUrl": "/img/cats/4Emily.jpg"
+
+    },
+
+    {
+        "id": 5,
+        "name": "Greta",
+        "age": 3,
+        "color": "white",
+        "imgUrl": "/img/cats/5Greta.jpg"
+
+    },
+
+    {
+        "id": 6,
+        "name": "Adam",
+        "age": 5,
+        "color": "grey",
+        "imgUrl": "/img/cats/6Adam.jpg"
+
+    },
+
+    {
+        "id": 7,
+        "name": "Noa",
+        "age": 2,
+        "color": "brown",
+        "imgUrl": "/img/cats/7Noa.jpg"
+
+    },
+
+    {
+        "id": 8,
+        "name": "Mickey",
+        "age": 9,
+        "color": "brown",
+        "imgUrl": "/img/cats/8Mickey.jpg"
+
+    },
+
+    {
+        "id": 9,
+        "name": "Gloria",
+        "age": 7,
+        "color": "brown",
+        "imgUrl": "/img/cats/9Gloria.jpg"
+
+    },
+
+    {
+        "id": 10,
+        "name": "Denis",
+        "age": 4,
+        "color": "grey",
+        "imgUrl": "/img/cats/10Denis.jpg"
+
+    },
+
+    {
+        "id": 11,
+        "name": "Snowflake",
+        "age": 2,
+        "color": "white",
+        "imgUrl": "/img/cats/11Snowflake.jpg"
+
+    },
+    {
+        "id": 12,
+        "name": "Gigi",
+        "age": 2,
+        "color": "ginger",
+        "imgUrl": "/img/cats/12Gigi.jpg"
+
+    }
+
+]

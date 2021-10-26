@@ -1,0 +1,17 @@
+.header-img-wrapper {
+    img {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        margin-left: 50%;
+        margin-top: -200px;
+        &:first-child {
+            mix-blend-mode: multiply;
+            position: absolute;
+        }
+        &:last-child {
+            mix-blend-mode: soft-light;
+            position: absolute;
+        }
+    }
+}
