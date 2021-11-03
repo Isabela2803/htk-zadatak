@@ -25,8 +25,22 @@
             <span>&nbsp</span>
             <span>M</span>
             <span>E</span>
-
         </h1>
+
+        <form>
+            <p>Please select the sort type:</p>
+            <div>
+                <input type="radio" id="nameAsc" name="kitten" value="name">
+                <label for="nameAsc">By Name: Ascending</label>
+                <input type="radio" id="nameDes" name="kitten" value="name">
+                <label for="nameDes">By Name: Descending</label>
+                <input type="radio" id="ageAsc" name="kitten" value="age">
+                <label for="ageAsc">By Age: Ascending</label>
+                <input type="radio" id="ageDes" name="kitten" value="age">
+                <label for="ageDes">By Age: Descending</label>
+            </div>
+        </form>
+
         <div class="header-img-wrapper">
             <img src="img/cat adopt me.png" alt="cats">
             <img src="img/Puppy-Paws.jpg" alt="cat">
@@ -41,8 +55,7 @@
     <div class="circle circle-2"></div>
     <div class="circle circle-3"></div>
 
-    <script src="index.js"></script>
-
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>
