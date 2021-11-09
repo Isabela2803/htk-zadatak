@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="header-main">
         <h1>
             <span>A</span>
             <span>D</span>
@@ -27,29 +27,55 @@
             <span>E</span>
         </h1>
 
-        <form>
-            <p>Please select the sort type:</p>
-            <div>
-                <input type="radio" id="nameAsc" name="kitten" value="name">
-                <label for="nameAsc">By Name: Ascending</label>
-                <input type="radio" id="nameDes" name="kitten" value="name">
-                <label for="nameDes">By Name: Descending</label>
-                <input type="radio" id="ageAsc" name="kitten" value="age">
-                <label for="ageAsc">By Age: Ascending</label>
-                <input type="radio" id="ageDes" name="kitten" value="age">
-                <label for="ageDes">By Age: Descending</label>
-            </div>
-        </form>
-
-        <div class="header-img-wrapper">
-            <img src="img/cat adopt me.png" alt="cats">
-            <img src="img/Puppy-Paws.jpg" alt="cat">
         </div>
     </header>
 
-    <section>
-        <div id="cards-wrapper"></div>
+    <div class="header-img-wrapper">
+        <img src="img/cat adopt me.png" alt="cats">
+    </div>
+
+    <section class="carousel-section">
+        <div id="carousel-wrapper"></div>
     </section>
+
+    <section class="filters-section">
+
+        <div class="filter-wrapper">
+            <div class="first div">
+                <p>Sort by:</p>
+                <div class="filter-sort-by">
+                    <input type="radio" name="sort-by" value="name">
+                    <label for="name">Name </label>
+                </div>
+                <div class="filter-sort-by">
+                    <input type="radio" name="sort-by" value="age" checked>
+                    <label for="age">Age</label>
+                </div>
+            </div>
+
+            <div class="sort-wrapper">
+                <p>Choose:</p>
+                <div class="filter-order-by">
+                    <input type="radio" name="sort-order" value="asc" checked>
+                    <label for="asc">Ascending</label>
+                </div>
+                <div class="filter-order-by">
+                    <input type="radio" name="sort-order" value="desc">
+                    <label for="desc">Descending</label>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <section class="cards-section">
+        <div id="cards-wrapper"></div>
+        <button id="loadMoreBtn">Load more</button>
+    </section>
+
 
     <div class="circle circle-1"></div>
     <div class="circle circle-2"></div>

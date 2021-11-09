@@ -4,100 +4,76 @@
         "age": 4,
         "color": "grey",
         "imgUrl": "/img/cats/1Tom.jpg"
-
-
-
     },
-
     {
         "id": 2,
         "name": "Blackie",
         "age": 7,
         "color": "black",
         "imgUrl": "/img/cats/2Blackie.png"
-
     },
-
     {
         "id": 3,
         "name": "Otis",
         "age": 10,
         "color": "black",
         "imgUrl": "/img/cats/3Otis.jpg"
-
-
     },
-
     {
         "id": 4,
         "name": "Emily",
         "age": 8,
         "color": "ginger",
         "imgUrl": "/img/cats/4Emily.jpg"
-
     },
-
     {
         "id": 5,
         "name": "Greta",
         "age": 3,
         "color": "white",
         "imgUrl": "/img/cats/5Greta.jpg"
-
     },
-
     {
         "id": 6,
         "name": "Adam",
         "age": 5,
         "color": "grey",
         "imgUrl": "/img/cats/6Adam.jpg"
-
     },
-
     {
         "id": 7,
         "name": "Noa",
         "age": 2,
         "color": "brown",
         "imgUrl": "/img/cats/7Noa.jpg"
-
     },
-
     {
         "id": 8,
         "name": "Mickey",
         "age": 9,
         "color": "brown",
         "imgUrl": "/img/cats/8Mickey.jpg"
-
     },
-
     {
         "id": 9,
         "name": "Gloria",
         "age": 7,
         "color": "brown",
         "imgUrl": "/img/cats/9Gloria.jpg"
-
     },
-
     {
         "id": 10,
         "name": "Denis",
         "age": 4,
         "color": "grey",
         "imgUrl": "/img/cats/10Denis.jpg"
-
     },
-
     {
         "id": 11,
         "name": "Snowflake",
         "age": 2,
         "color": "white",
         "imgUrl": "/img/cats/11Snowflake.jpg"
-
     },
     {
         "id": 12,
@@ -105,7 +81,6 @@
         "age": 2,
         "color": "ginger",
         "imgUrl": "/img/cats/12Gigi.jpg"
-
     },
     {
         "id": 13,
@@ -120,7 +95,6 @@
         "age": 11,
         "color": "grey",
         "imgUrl": "/img/cats/14Mimi.jpg"
-
     },
     {
         "id": 15,
@@ -184,7 +158,6 @@
         "age": 4,
         "color": "black",
         "imgUrl": "/img/cats/23Bestie.jpg"
-
     },
     {
         "id": 24,
@@ -199,7 +172,6 @@
         "age": 3,
         "color": "ginger",
         "imgUrl": "/img/cats/25Selma.jpg"
-
     },
     {
         "id": 26,
@@ -207,7 +179,6 @@
         "age": 6,
         "color": "white",
         "imgUrl": "/img/cats/26May.jpg"
-
     },
     {
         "id": 27,
@@ -215,7 +186,6 @@
         "age": 4,
         "color": "ginger",
         "imgUrl": "/img/cats/27Izzy.jpg"
-
     },
     {
         "id": 28,
@@ -223,7 +193,6 @@
         "age": 5,
         "color": "white",
         "imgUrl": "/img/cats/28Kali.jpg"
-
     },
     {
         "id": 29,
@@ -231,7 +200,6 @@
         "age": 4,
         "color": "brown",
         "imgUrl": "/img/cats/29Don.jpg"
-
     },
     {
         "id": 30,
@@ -239,7 +207,6 @@
         "age": 2,
         "color": "ginger",
         "imgUrl": "/img/cats/30Pole.jpg"
-
     },
     {
         "id": 31,
@@ -247,7 +214,6 @@
         "age": 8,
         "color": "blrown",
         "imgUrl": "/img/cats/31Brownie.jpg"
-
     },
     {
         "id": 32,
@@ -255,7 +221,6 @@
         "age": 2,
         "color": "brown",
         "imgUrl": "/img/cats/32Ziggy.jpg"
-
     },
     {
         "id": 33,
@@ -263,7 +228,6 @@
         "age": 5,
         "color": "ginger",
         "imgUrl": "/img/cats/33Villy.jpg"
-
     },
     {
         "id": 34,
@@ -271,7 +235,6 @@
         "age": 4,
         "color": "grey",
         "imgUrl": "/img/cats/34Harry.jpg"
-
     },
     {
         "id": 35,
@@ -279,7 +242,5 @@
         "age": 3,
         "color": "black",
         "imgUrl": "/img/cats/35Nashi.jpg"
-
     }
-
 ]

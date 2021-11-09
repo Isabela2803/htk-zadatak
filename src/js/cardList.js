@@ -1,39 +1,107 @@
 function cardList(data) {
     this.data = data;
+    this.sortBy = 'age';
+    this.sortOrder = 'asc';
+    this.visibleItems = 20;
+    this.updateFiltersEvent = new Event('filtersUpdated');
 
     this.init();
     this.bind();
+
 }
 
 cardList.prototype.init = function() {
+    this.sortItems();
     this.renderCards();
 }
 
 cardList.prototype.bind = function() {
-    document.getElementById("nameAsc").addEventListener("click", () => {
-        this.sortByNameAsc();
-        this.renderCards();
+    let sortByBtns = document.getElementsByName('sort-by');
+    let sortOrderBtns = document.getElementsByName("sort-order");
+
+    sortByBtns.forEach(el => {
+        el.addEventListener('change', () => {
+            this.sortBy = el.value;
+            document.dispatchEvent(this.updateFiltersEvent)
+        })
     });
 
-    document.getElementById("nameDes").addEventListener("click", () => {
-        this.sortByNameDes();
-        this.renderCards();
+    sortOrderBtns.forEach(el => {
+        el.addEventListener('change', () => {
+            this.sortOrder = el.value;
+            document.dispatchEvent(this.updateFiltersEvent)
+        })
     });
 
-    document.getElementById("ageAsc").addEventListener("click", () => {
-        this.sortByAgeAsc();
+    document.addEventListener('filtersUpdated', () => {
+        this.sortCards();
         this.renderCards();
-    });
+    })
 
-    document.getElementById("ageDes").addEventListener("click", () => {
-        this.sortByAgeDes();
-        this.renderCards();
+    this.onClickLoadMoreBtn();
+    // this.onClickAdoptBtn();
+}
+
+cardList.prototype.sortItems = function() {
+    return this.data.sort(function(a, b) {
+        return a.age - b.age;
     });
+}
+
+cardList.prototype.sortCards = function() {
+    this.sortByOrder();
+    this.sortByValue();
+}
+
+cardList.prototype.sortByOrder = function() {
+    let sortedData;
+    if (this.sortBy === "age") {
+        if (this.sortOrder === "asc") {
+            sortedData = this.data.sort(function(a, b) {
+                return a.age - b.age;
+            });
+        }
+        if (this.sortOrder === "desc") {
+            sortedData = this.data.sort(function(a, b) {
+                return b.age - a.age;
+            });
+        }
+        this.data = sortedData;
+    }
+}
+
+cardList.prototype.sortByValue = function() {
+    let sortedBy;
+    if (this.sortBy === "name") {
+
+        if (this.sortOrder === "asc") {
+            sortedBy = this.data.sort(function(a, b) {
+                let nameA = a.name.toUpperCase();
+                let nameB = b.name.toUpperCase();
+                if (nameA < nameB) return -1;
+                if (nameA > nameB) return 1;
+
+                return 0;
+            });
+        }
+        if (this.sortOrder === "desc") {
+            sortedBy = this.data.sort(function(a, b) {
+                let nameA = a.name.toUpperCase();
+                let nameB = b.name.toUpperCase();
+                if (nameA > nameB) return -1;
+                if (nameA > nameB) return 1;
+
+                return 0;
+            });
+        }
+        this.data = sortedBy;
+    }
 }
 
 cardList.prototype.renderCards = function() {
     let htmlOutput = '';
-    this.data.forEach(function(element) {
+    let data = this.data.slice(0, this.visibleItems)
+    data.forEach(function(element) {
         htmlOutput += `
         <div class="card">
             <img src="${element.imgUrl}" class="card-image" alt="${element.name} image" />
@@ -54,50 +122,31 @@ cardList.prototype.renderCards = function() {
     document.getElementById('cards-wrapper').innerHTML = htmlOutput;
 }
 
-cardList.prototype.sortByAgeAsc = function() {
-    const sortedDataAsc = this.data.sort(function(a, b) {
-        return a.age - b.age;
-    });
-    this.data = sortedDataAsc;
+cardList.prototype.onClickLoadMoreBtn = function() {
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+    loadMoreBtn.addEventListener("click", () => {
+        this.visibleItems = this.visibleItems + 20;
+        if (this.visibleItems >= 35) {
+            loadMoreBtn.remove();
+        }
+        this.sortByOrder();
+        this.sortByValue();
+        this.renderCards();
+    })
 }
 
-cardList.prototype.sortByAgeDes = function() {
-    const sortedDataDes = this.data.sort(function(a, b) {
-        return b.age - a.age;
-    });
-    this.data = sortedDataDes;
+
+cardList.prototype.onClickAdoptBtn = function() {
+    let adoptCatBtn = document.getElementsByClassName("card-btn");
+    let adoptCatCard = document.getElementsByClassName("card");
+    adoptCatBtn.addEventListener("click", () => {
+        adoptCatBtn.remove() + adoptCatCard.remove();
+    })
+
+    this.renderCards();
 }
 
-cardList.prototype.sortByNameAsc = function() {
-    const sortedDataNameAsc = this.data.sort(function(a, b) {
-        let nameA = a.name.toUpperCase();
-        let nameB = b.name.toUpperCase();
-        if (nameA < nameB) {
-            return -1;
-        }
-        if (nameA > nameB) {
-            return 1;
-        }
+console.log(document.getElementsByClassName("card-btn"))
 
-        return 0;
-    });
-    this.data = sortedDataNameAsc;
-}
-
-cardList.prototype.sortByNameDes = function() {
-    const sortedDataNameDes = this.data.sort(function(a, b) {
-        let nameA = a.name.toUpperCase();
-        let nameB = b.name.toUpperCase();
-        if (nameA > nameB) {
-            return -1;
-        }
-        if (nameA > nameB) {
-            return 1;
-        }
-
-        return 0;
-    });
-    this.data = sortedDataNameDes;
-}
 
 export default cardList;

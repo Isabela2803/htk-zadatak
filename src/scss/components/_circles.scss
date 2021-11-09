@@ -1,6 +1,6 @@
     .circle {
         &.circle-1 {
-            position: absolute;
+            position: fixed;
             width: 25vw;
             height: 25vw;
             border-radius: 50%;
@@ -10,7 +10,7 @@
             z-index: -1;
         }
         &.circle-2 {
-            position: absolute;
+            position: fixed;
             width: 25vw;
             height: 25vw;
             border-radius: 50%;
@@ -20,7 +20,7 @@
             z-index: -1;
         }
         &.circle-3 {
-            position: absolute;
+            position: fixed;
             overflow: hidden;
             width: 250px;
             height: 500px;
