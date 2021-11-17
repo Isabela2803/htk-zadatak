@@ -26,29 +26,24 @@
             <span>M</span>
             <span>E</span>
         </h1>
-
-        </div>
     </header>
 
-    <div class="header-img-wrapper">
-        <img src="img/cat adopt me.png" alt="cats">
-    </div>
 
-    <section class="carousel-section">
+
+    <!-- <section class="carousel-section">
         <div id="carousel-wrapper"></div>
-    </section>
+    </section> -->
 
     <section class="filters-section">
-
         <div class="filter-wrapper">
             <div class="first div">
                 <p>Sort by:</p>
                 <div class="filter-sort-by">
-                    <input type="radio" name="sort-by" value="name">
+                    <input type="radio" id="name" name="sort-by" value="name">
                     <label for="name">Name </label>
                 </div>
                 <div class="filter-sort-by">
-                    <input type="radio" name="sort-by" value="age" checked>
+                    <input type="radio" id="age" name="sort-by" value="age" checked>
                     <label for="age">Age</label>
                 </div>
             </div>
@@ -56,17 +51,43 @@
             <div class="sort-wrapper">
                 <p>Choose:</p>
                 <div class="filter-order-by">
-                    <input type="radio" name="sort-order" value="asc" checked>
+                    <input type="radio" id="asc" name="sort-order" value="asc" checked>
                     <label for="asc">Ascending</label>
                 </div>
                 <div class="filter-order-by">
-                    <input type="radio" name="sort-order" value="desc">
+                    <input type="radio" id="desc" name="sort-order" value="desc">
                     <label for="desc">Descending</label>
                 </div>
             </div>
-
         </div>
 
+        <div class="img-search">
+            <div class="header-img-wrapper">
+                <img src="img/little_cat.jpg" alt="cats">
+            </div>
+            <div class="search-wrapper">
+                <div class="search-input">
+                    <a href="" target="_blanck" hidden></a>
+                    <input type="text" placeholder="Type to search...">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="classification">
+            <div class="selected-less-then-6">
+                <input type="checkbox" role="switch" id="less-than-six" name="6" value="sort-less-6"> <label for="less-than-six">Less than 6 months</label>
+            </div>
+
+            <div class="selected-less-then-12">
+                <input type="checkbox" role="switch" id="less-than-twelve" name="12" value="sort-less-12"> <label for="less-than-twelve">Less than 12 months</label>
+            </div>
+
+            <div class="selected-color-black">
+                <input type="checkbox" role="switch" id="filter-by-color" name="black" value="sort-black-color"> <label for="filter-by-color">Color black</label>
+            </div>
+        </div>
 
 
     </section>
@@ -74,6 +95,16 @@
     <section class="cards-section">
         <div id="cards-wrapper"></div>
         <button id="loadMoreBtn">Load more</button>
+
+
+
+        <div class="bg-modal">
+            <div class="modal">
+                <div class="close"></div>
+                <img src="/img/cats/ric.jpg" alt="cats" height="1000px" width="2000px">
+            </div>
+        </div>
+
     </section>
 
 

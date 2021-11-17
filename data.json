@@ -50,7 +50,7 @@
     {
         "id": 8,
         "name": "Mickey",
-        "age": 9,
+        "age": 12,
         "color": "brown",
         "imgUrl": "/img/cats/8Mickey.jpg"
     },
@@ -92,14 +92,14 @@
     {
         "id": 14,
         "name": "Mimi",
-        "age": 11,
+        "age": 13,
         "color": "grey",
         "imgUrl": "/img/cats/14Mimi.jpg"
     },
     {
         "id": 15,
         "name": "Somokey",
-        "age": 11,
+        "age": 13,
         "color": "grey",
         "imgUrl": "/img/cats/15Smokey.jpg"
     },
@@ -211,7 +211,7 @@
     {
         "id": 31,
         "name": "Brownie",
-        "age": 8,
+        "age": 12,
         "color": "blrown",
         "imgUrl": "/img/cats/31Brownie.jpg"
     },
@@ -239,7 +239,7 @@
     {
         "id": 35,
         "name": "Nashi",
-        "age": 3,
+        "age": 13,
         "color": "black",
         "imgUrl": "/img/cats/35Nashi.jpg"
     }
