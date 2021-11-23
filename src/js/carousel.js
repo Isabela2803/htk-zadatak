@@ -1,11 +1,39 @@
 function carousel() {
     this.data = data;
     this.start();
+    this.showSlides();
+    this.plusSlides();
+    this.currentSlide();
+
 
 }
 
-cardList.prototype.start = function() {
+carousel.prototype.start = function() {
     this.renderCarousel();
+
+}
+carousel.prototype.showSlides = function(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[slideIndex - 1].style.display = "block";
+    }
+}
+
+
+carousel.prototype.plusSlides = function(n) {
+    let slideIndex = 1;
+    this.showSlides(slideIndex += n);
+}
+
+carousel.prototype.currentSlide = function(n) {
+    let slideIndex = 1;
+    this.showSlides(slideIndex = n);
+
 }
 
 carousel.prototype.renderCarousel = function() {
@@ -79,43 +107,16 @@ carousel.prototype.renderCarousel = function() {
 <br>`;
     });
 
-    document.getElementById('carousel-wrapper').innerGTML = htmlOutput;
-}
-
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-
+    document.getElementById('carousel-wrapper').innerHTML = htmlCarousel;
 }
 
 
 
-// let slideIndex1 = 0;
 
 
-// function showSlides1() {
+
+// carousel.prototype.showSlides1 = function() {
+//   let slideIndex1 = 0;
 //     let i;
 //     let slides1 = document.getElementsByClassName("mySlides");
 //     for (i = 0; i < slides1.length; i++) {
@@ -127,5 +128,5 @@ function showSlides(n) {
 //     setTimeout(showSlides1, 3500); 
 // }
 
-showSlides1();
+// this.showSlides1();
 export default carousel;

@@ -13,10 +13,12 @@ function cardList(data) {
     this.bind();
     this.search1();
 
+
 }
 
 cardList.prototype.init = function() {
     this.sortItems();
+    this.adoptCat();
     this.renderCards();
 }
 
@@ -66,6 +68,7 @@ cardList.prototype.bind = function() {
     this.onClickLoadMoreBtn();
 
 
+
 }
 
 cardList.prototype.sortItems = function() {
@@ -96,7 +99,6 @@ cardList.prototype.sortByBlackColor = function() {
         console.log("Input is checked");
     } else {
         console.log("Input is off")
-        this.renderCards();
     }
 
 }
@@ -192,9 +194,6 @@ cardList.prototype.renderCards = function() {
             </div>
         </div>`
     });
-
-
-
     document.getElementById('cards-wrapper').innerHTML = htmlOutput;
 }
 
@@ -241,17 +240,28 @@ cardList.prototype.onClickAdoptBtn = function() {
 }
 
 cardList.prototype.closeAdoptBtn = function() {
-        let cardButtonModal = document.querySelectorAll(".close");
-        cardButtonModal.forEach(el => {
-            el.addEventListener('click',
-                function() {
-                    let modal = document.querySelectorAll(".bg-modal");
-                    modal.forEach(el => {
-                        el.style.display = "none";
-                    })
-                });
+    let cardButtonModal = document.querySelectorAll(".close");
+    cardButtonModal.forEach(el => {
+        el.addEventListener('click',
+            function() {
+                let modal = document.querySelectorAll(".bg-modal");
+                modal.forEach(el => {
+                    el.style.display = "none";
+                })
+            });
 
-        });
+    });
+
+}
+
+cardList.prototype.adoptCat = function(catName) {
+        for (let i = 0; i < this.data.length; i += 1) {
+            if (this.data[i].name === catName) {
+                this.data.splice(i, 1)
+                return;
+            }
+            this.renderCards();
+        }
 
     }
     // cardList.prototype.closeAdoptBtn = function() {

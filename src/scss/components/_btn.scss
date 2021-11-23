@@ -34,3 +34,18 @@
 #loadMoreBtn:focus {
     box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
 }
+
+#loadMoreBtn:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(245, 245, 220, 0.3);
+    transition: all 0.3 s;
+}
+
+#loadMoreBtn:hover:after {
+    width: 100%;
+}
