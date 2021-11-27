@@ -27,12 +27,9 @@
             <span>E</span>
         </h1>
     </header>
-
-
-
-    <!-- <section class="carousel-section">
+    <section class="carousel-section">
         <div id="carousel-wrapper"></div>
-    </section> -->
+    </section>
 
     <section class="filters-section">
         <div class="filter-wrapper">
@@ -61,52 +58,53 @@
             </div>
         </div>
 
-        <div class="img-search">
-            <div class="header-img-wrapper">
-                <img src="img/little_cat.jpg" alt="cats">
+        <div class="search_classification">
+            <div class="img-search">
+                <div class="header-img-wrapper">
+                    <img src="img/little_cat.jpg" alt="cats">
+                </div>
+
+                <div class="search-wrapper">
+                    <div class="search-input">
+                        <a href="" target="_blanck" hidden></a>
+                        <input type="text" placeholder="Type to search...">
+                    </div>
+                </div>
             </div>
-            <div class="search-wrapper">
-                <div class="search-input">
-                    <a href="" target="_blanck" hidden></a>
-                    <input type="text" placeholder="Type to search...">
+
+            <div class="classification">
+                <div class="selected-less-then-6">
+                    <input type="checkbox" role="switch" id="less-than-six" name="6" value="sort-less-6"> <label for="less-than-six">Less than 6 months</label>
+                </div>
+
+                <div class="selected-less-then-12">
+                    <input type="checkbox" role="switch" id="less-than-twelve" name="12" value="sort-less-12"> <label for="less-than-twelve">Less than 12 months</label>
+                </div>
+
+                <div class="selected-color-black">
+                    <input type="checkbox" role="switch" id="filter-by-color" name="black" value="sort-black-color"> <label for="filter-by-color">Color black</label>
                 </div>
             </div>
         </div>
-
-
-
-        <div class="classification">
-            <div class="selected-less-then-6">
-                <input type="checkbox" role="switch" id="less-than-six" name="6" value="sort-less-6"> <label for="less-than-six">Less than 6 months</label>
-            </div>
-
-            <div class="selected-less-then-12">
-                <input type="checkbox" role="switch" id="less-than-twelve" name="12" value="sort-less-12"> <label for="less-than-twelve">Less than 12 months</label>
-            </div>
-
-            <div class="selected-color-black">
-                <input type="checkbox" role="switch" id="filter-by-color" name="black" value="sort-black-color"> <label for="filter-by-color">Color black</label>
-            </div>
-        </div>
-
-
     </section>
 
     <section class="cards-section">
         <div id="cards-wrapper"></div>
         <button id="loadMoreBtn">Load more</button>
-
-
-
         <div class="bg-modal">
             <div class="modal">
-                <div class="close"></div>
-                <img src="/img/cats/ric.jpg" alt="cats" height="1000px" width="2000px">
+                <div class="modal-content">
+                    <div class="close"></div>
+                    <p>Are you really want to adopt me?</p>
+                    <img src="/img/cats/1Tom.jpg" alt="cats">
+                    <div class="btn-wrapper">
+                        <button>Yes,please.</button>
+                        <button>No,sorry.</button>
+                    </div>
+                </div>
             </div>
         </div>
-
     </section>
-
 
     <div class="circle circle-1"></div>
     <div class="circle circle-2"></div>

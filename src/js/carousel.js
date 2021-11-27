@@ -1,10 +1,12 @@
-function carousel() {
+function carousel(data) {
     this.data = data;
     this.start();
     this.showSlides();
     this.plusSlides();
     this.currentSlide();
+}
 
+carousel.prototype.filterFourYoungest = function() {
 
 }
 
@@ -15,6 +17,7 @@ carousel.prototype.start = function() {
 carousel.prototype.showSlides = function(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
+    let slideIndex = 1;
 
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
@@ -38,7 +41,7 @@ carousel.prototype.currentSlide = function(n) {
 
 carousel.prototype.renderCarousel = function() {
     let htmlCarousel = '';
-    data.forEach(function(element) {
+    this.data.forEach(function(element) {
         htmlCarousel += `
 <div class="slideshow-container">
     <div class="mySlides fade">
@@ -109,10 +112,6 @@ carousel.prototype.renderCarousel = function() {
 
     document.getElementById('carousel-wrapper').innerHTML = htmlCarousel;
 }
-
-
-
-
 
 
 // carousel.prototype.showSlides1 = function() {
