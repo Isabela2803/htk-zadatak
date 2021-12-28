@@ -1,131 +1,127 @@
+import modal from "/src/js/modal.js"
+
 function carousel(data) {
     this.data = data;
-    this.start();
-    this.showSlides();
-    this.plusSlides();
-    this.currentSlide();
+    this.carouselItems;
+    this.visibleSlides = 3;
+    this.sliderIntervalTime = 3000;
+
+    this.init();
+    this.bind();
+
+}
+
+carousel.prototype.init = function() {
+    this.filterFourYoungest();
+    this.renderCarousel(this.carouselItems);
+
+}
+
+carousel.prototype.bind = function() {
+    this.onClickNextBtn();
+    this.onClickPreviousBtn();
+    this.onMouseInteractActiveItem();
+    this.clickOnSlide();
+
+    document.addEventListener('catAdopted', (e) => {
+        let removedItem = this.data.filter((item) => {
+            return item.id != e.detail.id;
+        });
+
+        this.data = removedItem;
+        this.filterFourYoungest();
+        this.renderCarousel(this.carouselItems);
+    });
+
 }
 
 carousel.prototype.filterFourYoungest = function() {
+    this.carouselItems = this.data.sort(function(a, b) {
+        return a.age - b.age;
+    });
 
+    this.carouselItems = this.carouselItems.slice(0, 4);
 }
 
-carousel.prototype.start = function() {
-    this.renderCarousel();
-
-}
-carousel.prototype.showSlides = function(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let slideIndex = 1;
-
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[slideIndex - 1].style.display = "block";
-    }
+carousel.prototype.nextSlide = function() {
+    let firstSlide = this.carouselItems.shift();
+    this.carouselItems.push(firstSlide);
+    this.renderCarousel(this.carouselItems);
+    this.onMouseInteractActiveItem();
+    this.clickOnSlide();
 }
 
-
-carousel.prototype.plusSlides = function(n) {
-    let slideIndex = 1;
-    this.showSlides(slideIndex += n);
+carousel.prototype.previousSlide = function() {
+    let lastSlide = this.carouselItems.pop();
+    this.carouselItems.unshift(lastSlide);
+    this.renderCarousel(this.carouselItems);
+    this.onMouseInteractActiveItem();
+    this.clickOnSlide();
 }
 
-carousel.prototype.currentSlide = function(n) {
-    let slideIndex = 1;
-    this.showSlides(slideIndex = n);
-
+carousel.prototype.startSlider = function() {
+    this.sliderInterval = setInterval(() => {
+        this.nextSlide();
+    }, this.sliderIntervalTime);
 }
 
-carousel.prototype.renderCarousel = function() {
+carousel.prototype.stopSlider = function() {
+    clearInterval(this.sliderInterval);
+}
+
+carousel.prototype.onClickNextBtn = function() {
+    document.getElementById('next-slide').addEventListener('click', () => {
+        this.nextSlide();
+    })
+}
+
+carousel.prototype.onClickPreviousBtn = function() {
+    document.getElementById('prev-slide').addEventListener('click', () => {
+        this.previousSlide();
+    })
+}
+
+carousel.prototype.onMouseInteractActiveItem = function() {
+    const mouseTarget = document.getElementsByClassName('item-active')[0];
+    mouseTarget.addEventListener('mouseenter', () => {
+        this.stopSlider();
+    });
+    mouseTarget.addEventListener('mouseleave', () => {
+        this.startSlider();
+    });
+}
+
+carousel.prototype.renderCarousel = function(visibleData) {
     let htmlCarousel = '';
-    this.data.forEach(function(element) {
+    let data = visibleData.slice(0, this.visibleSlides)
+
+    data.forEach(function(element, index) {
+        let activeClass = '';
+        (index === 1) ? activeClass = 'item-active': '';
+
         htmlCarousel += `
-<div class="slideshow-container">
-    <div class="mySlides fade">
-        <div class="card current--card">
-            <div class="card__image">
-                <img src="${element.imgUrl}">
+            <div class="slide-item ${activeClass}" data-cat-id="${element.id}">
+                    <div class="slide-item-image">
+                        <img src="${element.imgUrl}">
+                    </div>
+                    <div class="slide-item-text">
+                        <h3 class="slide-item-text--name">Name: ${element.name}</h3>
+                        <p class="slide-item-text--age">Age: ${element.age} months</p>
+                    </div>
             </div>
-        </div>
-        <div class="info current--info">
-            <div class="text">
-                <h1 class="text name">Name: ${element.name}</h1>
-                <h4 class="text location">Age:${element.age} months</h4>
-                <p class="text description">Color: ${element.color}</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="mySlides fade">
-    <div class="card next--card">
-        <div class="card__image">
-            <img src="${element.imgUrl}">
-        </div>
-    </div>
-    <div class="info next--info">
-        <div class="text">
-            <h1 class="text name">Name: ${element.name}</h1>
-            <h4 class="text location">Age:${element.age} months</h4>
-            <p class="text description">Color: ${element.color}</p>
-        </div>
-    </div>
-</div>
-
-<div class="mySlides fade">
-    <div class="card next2--card">
-        <div class="card__image">
-            <img src="${element.imgUrl}">
-        </div>
-    </div>
-    <div class="info next2--info">
-        <div class="text">
-            <h1 class="text name">Name: ${element.name}</h1>
-            <h4 class="text location">Age:${element.age} months</h4>
-            <p class="text description">Color: ${element.color}</p>
-        </div>
-    </div>
-</div>
-
-<div class="mySlides fade">
-
-    <div class="card previous--card">
-        <div class="card__image">
-            <img src="${element.imgUrl}">
-        </div>
-    </div>
-    <div class="info previous--info">
-        <div class="text">
-            <h1 class="text name">Name: ${element.name}</h1>
-            <h4 class="text location">Age:${element.age} months</h4>
-            <p class="text description">Color: ${element.color}</p>
-        </div>
-    </div>
-</div>
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>`;
+        `;
     });
 
     document.getElementById('carousel-wrapper').innerHTML = htmlCarousel;
 }
 
+carousel.prototype.clickOnSlide = function() {
+    let cardSlideCarousel = document.querySelector(".slide-item.item-active");
+    const that = this;
 
-// carousel.prototype.showSlides1 = function() {
-//   let slideIndex1 = 0;
-//     let i;
-//     let slides1 = document.getElementsByClassName("mySlides");
-//     for (i = 0; i < slides1.length; i++) {
-//         slides1[i].style.display = "none";
-//     }
-//     slideIndex1++;
-//     if (slideIndex1 > slides1.length) { slideIndex1 = 1 }
-//     slides1[slideIndex1 - 1].style.display = "block";
-//     setTimeout(showSlides1, 3500); 
-// }
+    cardSlideCarousel.addEventListener('click', () => {
+        new modal(that.data, cardSlideCarousel.dataset.catId)
+    });
+}
 
-// this.showSlides1();
 export default carousel;

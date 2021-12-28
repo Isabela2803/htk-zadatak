@@ -1,17 +1,30 @@
 .header-main {
-    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    h1 {
+        text-align: center;
+        font-size: 100px;
+        letter-spacing: -0.35ch;
+        span:nth-child(1) {
+            color: black
+        }
+        span:nth-child(2) {
+            color: rgba(137, 47, 47, 0.272)
+        }
+        span:nth-child(3) {
+            color: black
+        }
+        span:nth-child(4) {
+            color: rgb(154, 68, 68)
+        }
+        span:nth-child(5) {
+            color: black
+        }
+        span:nth-child(12) {
+            color: rgba(137, 47, 47, 0.272)
+        }
+        span:nth-child(13) {
+            color: rgb(154, 68, 68)
+        }
+    }
 }
-
-// .header-img-wrapper {
-//     height: 150px;
-//     width: 150px;
-//     background-color: beige;
-//     border-radius: 35%;
-//     img {
-//         height: 150px;
-//         width: 150px;
-//         border-radius: 50%;
-//         mix-blend-mode: darken;
-//         z-index: 2;
-//     }
-// }

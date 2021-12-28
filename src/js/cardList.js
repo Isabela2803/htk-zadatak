@@ -1,12 +1,13 @@
+import modal from "/src/js/modal.js"
+
+
 function cardList(data) {
     this.data = data;
-
     this.sortBy = 'age';
     this.sortOrder = 'asc';
-
     this.visibleItems = 20;
+    this.maxNumOfCats = 35;
     this.updateFiltersEvent = new Event('filtersUpdated');
-
     this.filters = {
         lessThenSixMonths: '',
         lessThenTwelveMonths: '',
@@ -20,7 +21,6 @@ function cardList(data) {
 
 cardList.prototype.init = function() {
     this.sortItems();
-    this.adoptCat();
     this.renderCards(this.data);
 }
 
@@ -54,7 +54,7 @@ cardList.prototype.bind = function() {
     });
 
     sortOrderBtns.forEach(el => {
-        el.addEventListener('change', () => {
+        el.addEventListener('change', () => { // moda duplikat od linija 46 do 50 
             this.sortOrder = el.value;
             document.dispatchEvent(this.updateFiltersEvent);
         })
@@ -64,11 +64,30 @@ cardList.prototype.bind = function() {
         this.sortItems();
         let filteredData = this.filterItems();
         this.renderCards(filteredData);
+        this.onClickAdoptBtn();
     })
 
     this.onClickAdoptBtn();
-    this.closeAdoptBtn();
     this.onClickLoadMoreBtn();
+
+
+    document.addEventListener('catAdopted', (e) => {
+        let removedItem = this.data.filter((item) => {
+            return item.id != e.detail.id;
+        });
+
+        // this.search1();
+        this.data = removedItem;
+        this.renderCards(this.data);
+        this.onClickAdoptBtn();
+        this.onClickLoadMoreBtn();
+        this.sortItems();
+        let filteredData = this.filterItems();
+        this.renderCards(filteredData);
+        this.onClickAdoptBtn();
+
+    });
+
 }
 
 cardList.prototype.filterItems = function() {
@@ -108,6 +127,7 @@ cardList.prototype.search1 = function() {
         let data = this.filterItems();
         let found = data.filter(el => el.name.toLowerCase().includes(inputBox.value.toLowerCase()))
         this.renderCards(found);
+        this.onClickAdoptBtn();
     });
 }
 
@@ -161,7 +181,7 @@ cardList.prototype.renderCards = function(visibleData) {
     let data = visibleData.slice(0, this.visibleItems)
     data.forEach(function(element) {
         htmlOutput += `
-        <div class="card">
+        <div class="card" data-cat-id="${element.id}">
             <img src="${element.imgUrl}" class="card-image" alt="${element.name} image" />
             <div class="card-overlay">
                 <div class="card-header">
@@ -171,7 +191,7 @@ cardList.prototype.renderCards = function(visibleData) {
                         <div class="card-color"> Color: ${element.color} </div>  
                     </div>
                 </div>
-                <button type="button" class="card-btn" value="${element.id}"> Adopt me</button>
+                <button type="button" class="card-btn" data-cat-id="${element.id}"> Adopt me</button>
             </div>
         </div>`
     });
@@ -183,50 +203,28 @@ cardList.prototype.onClickLoadMoreBtn = function() {
     loadMoreBtn.addEventListener("click", () => {
         this.visibleItems += 20;
 
-        if (this.visibleItems >= 35) {
+        if (this.visibleItems >= this.maxNumOfCats) {
             loadMoreBtn.remove();
         }
 
         this.sortItems();
         let filteredData = this.filterItems();
         this.renderCards(filteredData);
+        this.onClickAdoptBtn();
+        this.closeAdoptBtn();
     })
 }
 
 cardList.prototype.onClickAdoptBtn = function() {
     let cardButtonModal = document.querySelectorAll(".card-btn");
+    const that = this;
+
     cardButtonModal.forEach(el => {
-        el.addEventListener('click',
-            function() {
-                let modal = document.querySelectorAll(".bg-modal");
-                modal.forEach(el => {
-                    el.style.display = "flex";
-                })
-            });
+        el.addEventListener('click', () => {
+            new modal(that.data, el.dataset.catId);
+        });
     });
-
 }
 
-cardList.prototype.closeAdoptBtn = function() {
-    let cardButtonModal = document.querySelectorAll(".close");
-    cardButtonModal.forEach(el => {
-        el.addEventListener('click',
-            function() {
-                let modal = document.querySelectorAll(".bg-modal");
-                modal.forEach(el => {
-                    el.style.display = "none";
-                })
-            });
-    });
 
-}
-
-cardList.prototype.adoptCat = function(catName) {
-    for (let i = 0; i < this.data.length; i += 1) {
-        if (this.data[i].name === catName) {
-            this.data.splice(i, 1)
-            return;
-        }
-    }
-}
 export default cardList;

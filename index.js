@@ -7,6 +7,6 @@ fetch("/data.json")
     .then(data => new cardList(data));
 
 
-// fetch("/data.json")
-//     .then(response => response.json())
-//     .then(data => new carousel(data));
+fetch("/data.json")
+    .then(response => response.json())
+    .then(data => new carousel(data));

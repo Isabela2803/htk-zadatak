@@ -1,3 +1,8 @@
+  /* 
+  1. SCSS varijable (npr. $accentcolor) izbaciti u poseban file (kreirati novi folder unutar scss foldera koji se zove abstracts i u njega dodati _variables.scss)
+  !!! ne zaboravit ga pozvati u main.scss-u !!!
+  */
+  
   $accentcolor: #d1ab6a;
   $darkcolor: #444;
   p {
@@ -39,11 +44,11 @@
           }
           &:before {
               background: transparent;
-              z-index: 1; // z index 2
+              z-index: 1;
               background-repeat: no-repeat;
               background-size: 13px;
               background-position: center;
-              background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNS4zIDEzLjIiPiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LjcuOGwtLjQtLjRhMS43IDEuNyAwIDAgMC0yLjMuMUw1LjIgOC4yIDMgNi40YTEuNyAxLjcgMCAwIDAtMi4zLjFMLjQgN2ExLjcgMS43IDAgMCAwIC4xIDIuM2wzLjggMy41YTEuNyAxLjcgMCAwIDAgMi40LS4xTDE1IDMuMWExLjcgMS43IDAgMCAwLS4yLTIuM3oiIGRhdGEtbmFtZT0iUGZhZCA0Ii8+PC9zdmc+);
+              background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNS4zIDEzLjIiPiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LjcuOGwtLjQtLjRhMS43IDEuNyAwIDAgMC0yLjMuMUw1LjIgOC4yIDMgNi40YTEuNyAxLjcgMCAwIDAtMi4zLjFMLjQgN2ExLjcgMS43IDAgMCAwIC4xIDIuM2wzLjggMy41YTEuNyAxLjcgMCAwIDAgMi40LS4xTDE1IDMuMWExLjcgMS43IDAgMCAwLS4yLTIuM3oiIGRhdGEtbmFtZT0iUGZhZCA0Ii8+PC9zdmc+); // ovo je grozno :D sta je ovo?! PROMINITI OBAVEZNO
               width: 0;
               height: 0;
           }
@@ -67,13 +72,13 @@
   
   .filters-section {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       flex-direction: row;
   }
   
   input[role=switch] {
-      //   appearance: none;
       -webkit-appearance: none;
       position: relative;
       display: inline-block;
@@ -130,17 +135,7 @@
       opacity: 0.4;
   }
   
-  //   .selected-less-6,
-  //   .selected-less-12,
-  //   .selected-color-black {
-  //       label {
-  //           display: flex;
-  //           align-items: center;
-  //           margin-right: -100px;
-  //       }
-  //   }
   .classification {
-      display: flexbox;
       margin-top: 50px;
       margin-right: 150px;
   }

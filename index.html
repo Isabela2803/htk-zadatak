@@ -28,20 +28,26 @@
         </h1>
     </header>
     <section class="carousel-section">
-        <div id="carousel-wrapper"></div>
+        <!-- carousel-wrapper ili carousel-content (ja sam doda content, odlucit kako cemo nazvat ali neka bude ujednaceno) -->
+        <div id="carousel-wrapper" class="carousel-content"></div>
+        <div id="prev-slide" class="carousel-controls prev-slide">&#10094;</div>
+        <div id="next-slide" class="carousel-controls next-slide">&#10095;</div>
     </section>
+
 
     <section class="filters-section">
         <div class="filter-wrapper">
-            <div class="first div">
+            <div class="filter-sorting">
                 <p>Sort by:</p>
                 <div class="filter-sort-by">
                     <input type="radio" id="name" name="sort-by" value="name">
                     <label for="name">Name </label>
+
                 </div>
                 <div class="filter-sort-by">
                     <input type="radio" id="age" name="sort-by" value="age" checked>
                     <label for="age">Age</label>
+
                 </div>
             </div>
 
@@ -58,48 +64,48 @@
             </div>
         </div>
 
-        <div class="search_classification">
-            <div class="img-search">
-                <div class="header-img-wrapper">
-                    <img src="img/little_cat.jpg" alt="cats">
-                </div>
 
-                <div class="search-wrapper">
-                    <div class="search-input">
-                        <a href="" target="_blanck" hidden></a>
-                        <input type="text" placeholder="Type to search...">
-                    </div>
-                </div>
+        <div class="img-search">
+            <div class="img-wrapper">
+                <img src="img/little_cat.jpg" alt="cats">
             </div>
 
-            <div class="classification">
-                <div class="selected-less-then-6">
-                    <input type="checkbox" role="switch" id="less-than-six" name="6" value="sort-less-6"> <label for="less-than-six">Less than 6 months</label>
-                </div>
-
-                <div class="selected-less-then-12">
-                    <input type="checkbox" role="switch" id="less-than-twelve" name="12" value="sort-less-12"> <label for="less-than-twelve">Less than 12 months</label>
-                </div>
-
-                <div class="selected-color-black">
-                    <input type="checkbox" role="switch" id="filter-by-color" name="black" value="sort-black-color"> <label for="filter-by-color">Color black</label>
+            <div class="search-wrapper">
+                <div class="search-input">
+                    <input type="text" placeholder="Type to search...">
                 </div>
             </div>
         </div>
+
+        <div class="classification">
+            <div class="selected-less-then-6">
+                <input type="checkbox" role="switch" id="less-than-six" name="6" value="sort-less-6"> <label for="less-than-six">Less than 6 months</label>
+            </div>
+
+            <div class="selected-less-then-12">
+                <input type="checkbox" role="switch" id="less-than-twelve" name="12" value="sort-less-12"> <label for="less-than-twelve">Less than 12 months</label>
+            </div>
+
+            <div class="selected-color-black">
+                <input type="checkbox" role="switch" id="filter-by-color" name="black" value="sort-black-color"> <label for="filter-by-color">Color black</label>
+            </div>
+        </div>
+
     </section>
+
 
     <section class="cards-section">
         <div id="cards-wrapper"></div>
         <button id="loadMoreBtn">Load more</button>
-        <div class="bg-modal">
+        <div id="modal" class="bg-modal">
             <div class="modal">
                 <div class="modal-content">
                     <div class="close"></div>
                     <p>Are you really want to adopt me?</p>
-                    <img src="/img/cats/1Tom.jpg" alt="cats">
+                    <div id="modal-cat-content"></div>
                     <div class="btn-wrapper">
-                        <button>Yes,please.</button>
-                        <button>No,sorry.</button>
+                        <button id="want-to-adopt">Yes,please.</button>
+                        <button id="dont-want-to-adopt">No,sorry.</button>
                     </div>
                 </div>
             </div>

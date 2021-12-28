@@ -1,3 +1,17 @@
+/* 
+1. zašto hvatamo element po ID-u, ako treba dodat klasu u css-u i onda po njoj selektirat element/ hvatat ga
+2. koristit nestanje u scss-u
+npr .load-more-btn {
+    &:active{...}
+    &:focus{...}
+}
+
+3. zasto koristimo ode root i znamo li sta je to? (ode je nepotreban)
+4. koristi se rooz za css property (slicno kao scss varijabla), prebaciti --surface-color i --curve u novo kreirani _abstracts.scss 
+i po mogucnosti dat im malo deskriptivnije ime
+
+*/
+
 #cards-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -11,10 +25,10 @@
 }
 
 .cards {
-    display: grid;
+    display: grid; // oke je koristi grid ako ga znamo koristit, bolje se drzat flexa ako nismo sigurno kako grid radi :D
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: 4rem 5vw;
+    margin: 4rem 5vw; // ajajajaja rem i vw skupa
     padding: 0;
     list-style-type: none;
 }
@@ -28,6 +42,9 @@
     text-decoration: none;
     width: 20%;
     margin: 10px;
+    @include for-phone-only {
+        width: 100%;
+    }
 }
 
 .card-image {
@@ -115,14 +132,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    img {
-        height: 500px;
-        margin: 50px 150px;
-        background-color: wheat;
-        opacity: 2;
-        object-fit: cover;
-        border-radius: 2%;
-    }
+}
+
+.modal-image {
+    height: 500px;
+    width: 500px;
+    background-color: wheat;
+    opacity: 1;
+    object-fit: cover;
+    border-radius: 2%;
+}
+
+.modal-text {
+    color: rgb(120, 39, 14);
+    margin-top: -130px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-bottom: 30px;
+    background-color: rgba(170, 158, 158, 0.353);
+    font-weight: bold;
+    opacity: 85%;
+    border-radius: 2%;
 }
 
 .bg-modal {
@@ -131,32 +161,32 @@
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 0;
-    opacity: 2;
-    z-index: 2;
+    opacity: 1;
+    z-index: 3;
     display: none;
     position: fixed;
     p {
-        font-size: 20px;
+        font-size: 30px; // zbog ovoga se definira defaultna velicina za svaki p u typography scss-u... ako je potrebno da bude 20px ok je ostaviti ovo
         margin: 15px 15px;
         color: beige;
     }
     button {
-        background-color: #fbeee0;
-        border: 2px solid #422800;
+        background-color: #fbeee0; // zbog ovoga se definira boja u scss _variables.scss file
+        border: 2px solid #422800; // zbog ovoga se definira boja u scss _variables.scss file
         border-radius: 30px;
-        box-shadow: #422800 4px 4px 0 0;
-        color: #422800;
+        box-shadow: #422800 4px 4px 0 0; // zbog ovoga se definira boja u scss _variables.scss file
+        color: #422800; // zbog ovoga se definira boja u scss _variables.scss file
         cursor: pointer;
         display: inline-block;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 18px; // isto za velicinu fonta kao i gore 
         padding: 0 18px;
-        line-height: 50px;
+        line-height: 50px; // sto posto smo sigurni da nam triba 50px visine tog texta unutar buttona?
         text-align: center;
         text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
+        user-select: none; // treba li nam i znamo li sta je to
+        -webkit-user-select: none; // treba li nam i znamo li sta je to
+        touch-action: manipulation; // treba li nam i znamo li sta je to
     }
     button:hover {
         background-color: #fff;
@@ -186,7 +216,7 @@
     top: 32px;
     width: 32px;
     height: 32px;
-    opacity: 0.3;
+    opacity: 1;
     cursor: pointer;
     z-index: 3;
 }
@@ -200,8 +230,8 @@
     position: absolute;
     left: 15px;
     content: ' ';
-    height: 33px;
-    width: 2px;
+    height: 35px;
+    width: 5px;
     background-color: rgb(199, 181, 181);
 }
 
@@ -211,9 +241,4 @@
 
 .close:after {
     transform: rotate(-45deg);
-}
-
-.search_classification {
-    display: flex;
-    align-items: center;
 }

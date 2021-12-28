@@ -1,3 +1,14 @@
+/* 
+1. zašto hvatamo elemento po ID-u, ako treba dodat klasu u css-u i onda po njoj selektirat element/ hvatat ga
+2. koristit nestanje u scss-u
+npr .load-more-btn {
+    &:active{...}
+    &:focus{...}
+}
+
+3. imenovanje klasa: ako smo koristili npr load-more-btn kroz cijeli projekt, zasto sad imamo loadMoreBtn (tako pisemo u JS-u ne htmlu)
+*/
+
 #loadMoreBtn {
     appearance: button;
     background-color: transparent;
@@ -9,13 +20,12 @@
     column-gap: 1rem;
     cursor: pointer;
     display: flex;
-    font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 100%;
     font-weight: 700;
     line-height: 24px;
     margin: 0;
-    outline: 2px solid transparent;
-    padding: 1rem 1.5rem;
+    outline: 2px solid transparent; // cemu 2px solid i onda transparent
+    padding: 1rem 1.5rem; // rem em px vw vh % sta cemo jos koristit
     text-align: center;
     text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
@@ -23,16 +33,6 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-}
-
-#loadMoreBtn:active {
-    background-color: #f3f4f6;
-    box-shadow: -1px 2px 5px rgba(81, 41, 10, 0.15), 0px 1px 1px rgba(81, 41, 10, 0.15);
-    transform: translateY(0.125rem);
-}
-
-#loadMoreBtn:focus {
-    box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
 }
 
 #loadMoreBtn:after {
@@ -43,7 +43,7 @@
     width: 0;
     height: 100%;
     background: rgba(245, 245, 220, 0.3);
-    transition: all 0.3 s;
+    transition: all 0.3 s; // 0.3 s ili 0.3s ?
 }
 
 #loadMoreBtn:hover:after {
