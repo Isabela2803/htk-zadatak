@@ -1,75 +1,149 @@
-    .carousel-section {
-        min-width: 1200px;
-        margin: 40px auto;
-        max-width: 100%;
-        .carousel-content {
-            display: flex;
-            justify-content: center;
-            .item-active {
-                z-index: 2;
-                transition: transform .3s ease;
-                opacity: 99%;
-                &:hover,
-                &:focus {
-                    transform: scale(1.2);
-                }
-            }
-            .slide-item {
-                position: relative;
-                margin: 0 10px;
-                cursor: pointer;
-                &-image {
-                    img {
-                        width: 350px;
-                        height: 300px;
-                        object-fit: cover;
+            .carousel-section {
+                // min-width: 1200px;
+                margin: 40px auto;
+                max-width: 100%;
+                .carousel-content {
+                    display: flex;
+                    justify-content: center;
+                    .item-active {
+                        z-index: 2;
+                        transition: transform .3s ease;
+                        opacity: 99%;
+                        &:hover,
+                        &:focus {
+                            transform: scale(1.2);
+                        }
+                    }
+                    .slide-item {
+                        position: relative;
+                        margin: 0 10px;
+                        cursor: pointer;
+                        &-image {
+                            img {
+                                width: 350px;
+                                height: 300px;
+                                object-fit: cover;
+                            }
+                        }
                     }
                 }
+                .slide-item-text {
+                    position: absolute;
+                    bottom: 0;
+                    white-space: nowrap;
+                    color: rgb(120, 39, 14);
+                    background-color: rgba(170, 158, 158, 0.353);
+                    opacity: 85%;
+                    &--name,
+                    &--age {
+                        margin: 5px;
+                    }
+                }
+                .slide-item-image {
+                    opacity: 85%;
+                }
             }
-        }
-        .slide-item-text {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            white-space: nowrap;
-            color: rgb(120, 39, 14);
-            background-color: rgba(170, 158, 158, 0.353);
-            opacity: 85%;
-            &--name,
-            &--age {
-                margin: 5px;
+            
+            .prev-slide,
+            .next-slide {
+                cursor: pointer;
+                position: absolute;
+                top: 350px;
+                transform: translateY(50%);
+                padding: 10px;
+                margin: 0 150px;
+                color: rgb(30, 28, 28);
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                &:hover {
+                    background-color: rgba(115, 101, 101, 0.734);
+                }
             }
-        }
-        .slide-item-image {
-            opacity: 85%;
-        }
-    }
-    
-    .prev-slide,
-    .next-slide {
-        cursor: pointer;
-        position: absolute;
-        top: 350px;
-        transform: translateY(50%);
-        padding: 10px;
-        margin: 0 150px;
-        color: rgb(30, 28, 28);
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        &:hover {
-            background-color: rgba(115, 101, 101, 0.734);
-        }
-    }
-    
-    .next-slide {
-        right: 10px;
-    }
-    
-    .prev-slide {
-        left: 10px;
-    }
-    
-    .slide-item {
-        opacity: 30%;
-    }
+            
+            .next-slide {
+                right: 10px;
+            }
+            
+            .prev-slide {
+                left: 10px;
+            }
+            
+            .slide-item {
+                opacity: 30%;
+            }
+            
+            @media (max-width: 700px) {
+                .carousel-section .carousel-content .slide-item-image img {
+                    width: 340px;
+                    height: 200px;
+                    object-fit: cover
+                }
+                .carousel-section {
+                    margin: 40px auto;
+                }
+                .prev-slide,
+                .next-slide {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 38%;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    transform: translateY(50%);
+                    color: rgb(30, 28, 28);
+                    font-weight: bold;
+                    font-size: 18px;
+                    transition: 0.6s ease;
+                    z-index: 0.8;
+                    &:hover {
+                        background-color: rgba(115, 101, 101, 0.734);
+                    }
+                }
+                .slide-item {
+                    display: none;
+                }
+                .item-active {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                }
+                .slide-item-image img {
+                    z-index: 0.6;
+                    opacity: 85%;
+                }
+                .slide-item-text {
+                    width: 340px;
+                }
+                .slide-item-image {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+            
+            @media (max-width: 900px) {
+                .carousel-section {
+                    margin-bottom: 150px;
+                }
+                .carousel-section .carousel-content .slide-item-image img {
+                    width: 340px;
+                    height: 200px;
+                    object-fit: cover;
+                    margin-left: 220px;
+                }
+                .slide-item {
+                    display: none;
+                }
+                .slide-item-text {
+                    margin-left: 220px;
+                    margin-top: 245px;
+                }
+                .item-active {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                }
+                .slide-item-image {
+                    width: 200px;
+                    height: 200px;
+                }
+            }

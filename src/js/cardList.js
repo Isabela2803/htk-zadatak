@@ -211,7 +211,7 @@ cardList.prototype.onClickLoadMoreBtn = function() {
         let filteredData = this.filterItems();
         this.renderCards(filteredData);
         this.onClickAdoptBtn();
-        this.closeAdoptBtn();
+
     })
 }
 

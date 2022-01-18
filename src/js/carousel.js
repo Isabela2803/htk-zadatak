@@ -12,6 +12,7 @@ function carousel(data) {
 }
 
 carousel.prototype.init = function() {
+    // this.startSlider();
     this.filterFourYoungest();
     this.renderCarousel(this.carouselItems);
 
@@ -20,7 +21,7 @@ carousel.prototype.init = function() {
 carousel.prototype.bind = function() {
     this.onClickNextBtn();
     this.onClickPreviousBtn();
-    this.onMouseInteractActiveItem();
+    // this.onMouseInteractActiveItem();
     this.clickOnSlide();
 
     document.addEventListener('catAdopted', (e) => {

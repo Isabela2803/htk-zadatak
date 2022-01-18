@@ -20,7 +20,6 @@ i po mogucnosti dat im malo deskriptivnije ime
 }
 
 :root {
-    --surface-color: #fff;
     --curve: 40;
 }
 
@@ -33,85 +32,6 @@ i po mogucnosti dat im malo deskriptivnije ime
     list-style-type: none;
 }
 
-.card {
-    position: relative;
-    display: block;
-    height: 100%;
-    border-radius: calc(var(--curve) * 1px);
-    overflow: hidden;
-    text-decoration: none;
-    width: 20%;
-    margin: 10px;
-    @include for-phone-only {
-        width: 100%;
-    }
-}
-
-.card-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    object-position: center;
-}
-
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    border-radius: calc(var(--curve) * 1px);
-    background-color: var(--surface-color);
-    transform: translateY(100%);
-    transition: .2s ease-in-out;
-}
-
-.card:hover .card-overlay {
-    transform: translateY(0);
-}
-
-.card-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1.1em;
-    padding: 1.2em;
-    border-radius: calc(var(--curve) * 1px) 0 0 0;
-    background-color: var(--surface-color);
-    transform: translateY(-100%);
-    transition: .2s ease-in-out;
-}
-
-.card:hover .card-header {
-    transform: translateY(0);
-}
-
-.card-title {
-    font-size: 1em;
-    margin: 0 0 .3em;
-    color: #6A515E;
-}
-
-.card-age,
-.card-color {
-    font-size: .8em;
-    color: #988991;
-    margin-bottom: 5%;
-}
-
-.card-btn {
-    background-color: rgb(154, 68, 68);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    width: 100%;
-    cursor: pointer;
-}
-
 .cards-section {
     display: flex;
     flex-direction: column;
@@ -119,126 +39,115 @@ i po mogucnosti dat im malo deskriptivnije ime
     align-items: center;
 }
 
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal {
+.card {
+    position: relative;
+    display: block;
+    height: auto;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-image {
-    height: 500px;
-    width: 500px;
-    background-color: wheat;
-    opacity: 1;
-    object-fit: cover;
-    border-radius: 2%;
-}
-
-.modal-text {
-    color: rgb(120, 39, 14);
-    margin-top: -130px;
-    margin-bottom: 20px;
-    padding-left: 10px;
-    padding-bottom: 30px;
-    background-color: rgba(170, 158, 158, 0.353);
-    font-weight: bold;
-    opacity: 85%;
-    border-radius: 2%;
-}
-
-.bg-modal {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
-    top: 0;
-    opacity: 1;
-    z-index: 3;
-    display: none;
-    position: fixed;
-    p {
-        font-size: 30px; // zbog ovoga se definira defaultna velicina za svaki p u typography scss-u... ako je potrebno da bude 20px ok je ostaviti ovo
-        margin: 15px 15px;
-        color: beige;
+    margin: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    border-radius: calc(var(--curve) * 1px);
+    @include tablet-width {
+        width: 40%;
     }
-    button {
-        background-color: #fbeee0; // zbog ovoga se definira boja u scss _variables.scss file
-        border: 2px solid #422800; // zbog ovoga se definira boja u scss _variables.scss file
-        border-radius: 30px;
-        box-shadow: #422800 4px 4px 0 0; // zbog ovoga se definira boja u scss _variables.scss file
-        color: #422800; // zbog ovoga se definira boja u scss _variables.scss file
-        cursor: pointer;
-        display: inline-block;
-        font-weight: 600;
-        font-size: 18px; // isto za velicinu fonta kao i gore 
-        padding: 0 18px;
-        line-height: 50px; // sto posto smo sigurni da nam triba 50px visine tog texta unutar buttona?
-        text-align: center;
-        text-decoration: none;
-        user-select: none; // treba li nam i znamo li sta je to
-        -webkit-user-select: none; // treba li nam i znamo li sta je to
-        touch-action: manipulation; // treba li nam i znamo li sta je to
+    @include desktop-width {
+        height: 100%;
+        width: 20%;
     }
-    button:hover {
-        background-color: #fff;
+    &:hover .card-header {
+        transform: translateY(0);
     }
-    button:active {
-        box-shadow: #422800 2px 2px 0 0;
-        transform: translate(2px, 2px);
+    &:hover .card-overlay {
+        transform: translateY(0);
     }
-    @media (min-width: 768px) {
-        button {
-            min-width: 120px;
-            padding: 0 25px;
+    &-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        @include tablet-width {
+            height: 300px;
         }
     }
-    button {
-        margin: 5px 15px;
+    &-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        border-radius: calc(var(--curve) * 1px);
+        background-color: $color-white;
+        transform: translateY(100%);
+        transition: .2s ease-in-out;
+    }
+    &-header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 1.2em;
+        border-radius: calc(var(--curve) * 1px) 0 0 0;
+        background-color: $color-white;
+        transform: translateY(-100%);
+        transition: .2s ease-in-out;
+    }
+    &-title {
+        font-size: 1em;
+        margin: 0 0 .3em;
+        color: $color-cards-title-name;
+    }
+    &-age,
+    &-color {
+        font-size: .8em;
+        color: $color-cards-text;
+        margin-bottom: 5%;
+    }
+    &-btn {
+        background-color: $color-red--light;
+        border: none;
+        color: $color-white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 100%;
+        cursor: pointer;
     }
 }
 
-.btn-wrapper {
-    display: flex;
-}
-
-.close {
-    position: fixed;
-    right: 32px;
-    top: 32px;
-    width: 32px;
-    height: 32px;
-    opacity: 1;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.close:hover {
-    opacity: 1;
-}
-
-.close:before,
-.close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 35px;
-    width: 5px;
-    background-color: rgb(199, 181, 181);
-}
-
-.close:before {
-    transform: rotate(45deg);
-}
-
-.close:after {
-    transform: rotate(-45deg);
-}
+// @media only screen and (max-width: 1024px) and (min-width: 414px) {
+//     button {
+//         min-width: 120px;
+//         padding: 0 25px;
+//     }
+//     button {
+//         margin: 5px 15px;
+//     }
+//     .bg-modal {
+//         p {
+//             font-size: 20px;
+//         }
+//     }
+//     .modal-image {
+//         height: 300px;
+//         width: 300px;
+//     }
+//     #cards-wrapper {
+//         width: 100%;
+//     }
+//     .card {
+//         height: 50%;
+//         width: 50%;
+//     }
+//     .card-image {
+//         width: 400px;
+//         height: 300px;
+//     }
+// }
+// @media (max-width:1024px) {
+//     .card-image {
+//         width: 100%;
+//         object-fit: cover;
+//     }
+// }

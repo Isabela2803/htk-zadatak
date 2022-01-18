@@ -36,3 +36,9 @@
             border-top-left-radius: 500px;
         }
     }
+    
+    @media (max-width: 900px) {
+        .circle {
+            display: none;
+        }
+    }
